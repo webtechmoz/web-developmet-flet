@@ -1,7 +1,7 @@
 import flet as ft
 from views.home import home
 from views.register import register
-from views.login import login
+from views.login import login, user
 
 def main(page: ft.Page):
     page.title = page.route
@@ -13,7 +13,12 @@ def main(page: ft.Page):
         page.views.clear()
 
         if page.route == '/':
-            page.views.append(home(page, WIDTH, HEIGHT))
+            if len(user) != 0:
+                page.views.append(home(page, WIDTH, HEIGHT, user[1]))
+            
+            else:
+                page.go('/login')
+                # page.views.append(login(page, WIDTH, HEIGHT))
         
         elif page.route == '/register':
             page.views.append(register(page, WIDTH, HEIGHT))

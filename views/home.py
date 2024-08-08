@@ -10,7 +10,7 @@ from controls.controls import (
     Divider
 )
 
-def home(page: ft.Page, width: int, height: int):
+def home(page: ft.Page, width: int, height: int, user: str):
 
     view = ft.View(
         route='/',
@@ -39,7 +39,7 @@ def home(page: ft.Page, width: int, height: int):
                         content=ft.Column(
                             controls=[
                                 Text(
-                                    value=list(strings.keys())[0].upper(),
+                                    value=user.upper(), # list(strings.keys())[0].upper(),
                                     size=22,
                                     color=ft.colors.BLACK
                                 ),
